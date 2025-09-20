@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Set character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Shann Portfolio</title> <!-- Page title -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Story+Script:regular" rel="stylesheet" /> <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <header>
+        <nav class="navbar reveal top">
+            <h1>My Portfolio</h1>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-item">Home</a></li>
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#contact" class="nav-item">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Apps Section -->
+    <section id="Appsl" class="Apps reveal">
+        <div class="apps">
+            <a href="https://github.com/DVanex" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.facebook.com/shann.michael.agang" target="_blank" rel="noopener">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/sjysqz/" target="_blank" rel="noopener">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Home Section -->
+    <section id="home" class="home reveal">
+        <div class="profile reveal left">
+            <img src="Images/Coder.jpg" class="profile-pic" alt="Profile Picture">
+            <div class="profile-info">
+                <h2>Hello World, I'm</h2>
+                <h1>Shann</h1>
+                <h2 id="typing-text"></h2>
+            </div>
+        </div>
+
+        <!-- Spline Section -->
+        <div class="spline-container reveal right">
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.56/build/spline-viewer.js"></script>
+            <spline-viewer url="https://prod.spline.design/k9LG7FLJ8Gc3EtcX/scene.splinecode"></spline-viewer>
+        </div>
+    </section>
+
+<!-- About Section -->
+<section id="about" class="about reveal">
+    <h2>About Me</h2>
+    <div class="about-container">
+
+        <!-- Who I Am -->
+        <div class="about-box reveal" onclick="openModal('aboutModal')">
+            <h3>Who I Am</h3>
+            <p>
+                Hello! I'm <strong>Shann</strong>, a passionate Computer Engineering student who loves
+                technology, coding, and continuous learning.
+            </p>
+            <div class="read-more">
+                <p>(click to read more)</p>
+            </div>
+        </div>
+
+        <!-- Who I Am Modal -->
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <h3>Who I Am</h3>
+                <p>
+                    Hello! I'm <strong>Shann</strong>, a passionate Computer Engineering student
+                    who loves technology, coding, and continuous learning.
+                </p>
+                <p>
+                    Outside of school, I enjoy building interactive websites, working on UI/UX
+                    designs, and experimenting with creative 3D projects. I aim to merge
+                    creativity and technology to make unique digital experiences.
+                </p>
+            </div>
+        </div>
+
+        <!-- My Goals -->
+        <div class="about-box reveal" onclick="openModal('goalsModal')">
+            <h3>My Goals</h3>
+            <p>
+                My aim is to become a skilled software and hardware engineer,
+                mastering programming, system design, and innovative technologies.
+                I want to create solutions that make an impact.
+            </p>
+            <div class="read-more">
+                <p>(click to read more)</p>
+            </div>
+        </div>
+
+        <!-- My Goals Modal -->
+        <div id="goalsModal" class="modal">
+            <div class="modal-content">
+                <h3>My Goals</h3>
+                <p>
+                    My aim is to become a skilled software and hardware engineer,
+                    mastering programming, system design, and innovative technologies.
+                    I want to create solutions that make an impact.
+                </p>
+                <p>
+                    In the long term, I want to contribute to projects that improve people’s
+                    daily lives and push technology forward.
+                </p>
+            </div>
+        </div>
+
+        <!-- Skills & Tools -->
+        <div class="about-box reveal" onclick="openModal('skillsModal')">
+            <h3>Skills & Tools</h3>
+            <p>
+                Languages: <strong>C, C++, Java, Python, HTML, CSS, JavaScript</strong><br>
+                Tools: <strong>AutoCAD, Git, Visual Studio Code</strong>
+            </p>
+            <div class="read-more">
+                <p>(click to read more)</p>
+            </div>
+        </div>
+
+        <!-- Skills & Tools Modal -->
+        <div id="skillsModal" class="modal">
+            <div class="modal-content">
+                <h3>Skills & Tools</h3>
+                <p>
+                    Languages: <strong>C, C++, Java, Python, HTML, CSS, JavaScript</strong>
+                </p>
+                <p>
+                    Tools: <strong>AutoCAD, Git, Visual Studio Code</strong>
+                </p>
+                <p>
+                    I'm also exploring frameworks and libraries like <strong>React</strong> 
+                    to enhance my frontend development skills.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects reveal">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project-box reveal">
+                <h3>Project 1</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor similique, voluptatem nobis laboriosam at, error adipisci modi voluptatum voluptatibus illo a doloribus velit nesciunt officiis!</p>
+            </div>
+            <div class="project-box reveal">
+                <h3>Project 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium placeat quod a perferendis cupiditate maxime incidunt magni fugit obcaecati omnis asperiores, veritatis nesciunt voluptate rem!</p>
+            </div>
+            <div class="project-box reveal">
+                <h3>Project 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium placeat quod a perferendis cupiditate maxime incidunt magni fugit obcaecati omnis asperiores, veritatis nesciunt voluptate rem!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal">
+        <h2>Contact Me</h2>
+        <p>If you’d like to collaborate or just say hello, feel free to reach out!</p>
+        <form action="https://formspree.io/f/mwpnzgzo" method="POST" class="contact-form reveal">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

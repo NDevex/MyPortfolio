@@ -1,57 +1,61 @@
 html {
   scroll-behavior: smooth;
+        /* Make root the scroll container for snapping */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
 body {
   margin: 0;
-  padding-top: 10px;
-  font-family: Arial, sans-serif;
-  color: white;
   background: #0f0f0f;
-    cursor: url("Images/Cursors/Arrow.cur"), auto;   /* default cursor */
+  cursor: url("Cursors/Arrow.cur"), auto;   /* default cursor */
 }
 
-input, textarea {
-  cursor: url("Images/Dark_Shadow/Cross.cur"), text;   /* typing cursor */
-}
 
-.grabbing {
-  cursor: url("Images/Cursors/Help.cur"), grab;   /* dragging */
+*.grabbing {
+  cursor: url("Cursors/Help.cur"), grab;   /* dragging */
 }
 
 a:hover, button:hover {
-  cursor: url("Images/Cursors/NO.cur"), pointer;
+  cursor: url("Cursors/NO.cur"), pointer;
 }
 
 a:active, button:active {
-  cursor: url("Images/Cursors/NO.cur"), pointer;
+  cursor: url("Cursors/NO.cur"), pointer;
 }
 
 .contact-form button {
-  cursor: url("Images/Cursors/NO.cur"), auto;
+  cursor: url("Cursors/NO.cur"), auto;
 }
 
 /* When hovering */
 .contact-form button:hover {
-  cursor: url("Images/Cursors/NO.cur"), pointer;
+  cursor: url("Cursors/NO.cur"), pointer;
 }
 
 /* When clicking (active) */
 .contact-form button:active {
-  cursor: url("Images/Cursors/NO.cur"), pointer;
+  cursor: url("Cursors/NO.cur"), pointer;
 }
 
 button {
   cursor: pointer;   /* standard hand pointer for buttons */
+} 
+
+
+.section {   
+height: 100vh;
+scroll-snap-align: start;
 }
 
 /* ===== Apps Section ===== */
+
 .apps {
   display: flex;
   gap: 10px;
-  position: relative;
-  top: 520px;
-  margin-left: 380px;
+  position: absolute;
+  top: 300px;
+  margin-left: 120px;
 }
 
 .apps i {
@@ -97,7 +101,7 @@ button {
 }
 
 .navbar h1 {
-  font-family: Knewave, cursive;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background: linear-gradient(60deg, #a855f7, #7c3aed, #c084fc, #4f0594); 
   background-size: 200% 200%;
   background-clip: text;
@@ -156,23 +160,42 @@ button {
 
 /* ===== HOME 3D SECTION ===== */
 .home {
+  overflow-x: hidden;
   scroll-margin-top: 100px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 65vh;
+  height: 100vh;
   padding-right: 50px;
+  scroll-snap-align: start;
+}
+
+.Invisible {
+  position: absolute;
+  left: 1300px;
+  top: 605px;
+  height: 55px;
+  width: 200px;
+  background-color: #0f0f0f;
+  z-index: 999999;
 }
 
 .home spline-viewer {
+  position: absolute;
+  bottom: -300px;
+  right: 5px;
   width: 700px;
   height: 700px;
   border: none;
   margin-top: 100px;
+  z-index: 1;
 }
 
 /* ===== PROFILE SECTION ===== */
 .profile {
+  position: absolute;
+  right: 800px;
+  bottom: 200px;
   margin-top: 200px;
   display: flex;
   align-items: center;
@@ -195,7 +218,7 @@ button {
 }
 
 .profile-info h1 {
-  font-family: Comic Sans MS, sans-serif;
+  font-family: Comic Sans MS, cursive, sans-serif;
   margin: 0;
   font-size: 100px;
   color: #5308e9;
@@ -222,14 +245,18 @@ button {
 }
 
 /* ===== ABOUT SECTION ===== */
+
 .about {
-  margin-top: 300px;
-  padding: 200px;
+  padding-bottom: 0;
+  padding-top: 0;
   text-align: center;
   background-color: #0a0a0a;
+  height: 100vh;
 }
 
 #about h2 {
+  position: relative;
+  top: 130px;
   font-family: Comic Sans MS, cursive, sans-serif;
   font-size: 2.5rem;
   margin-bottom: 50px;
@@ -237,6 +264,11 @@ button {
 }
 
 .about-container {
+  position: absolute;
+  top: 250px;
+  right: 20px;
+  padding-left: 150px;
+  padding-right: 150px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
@@ -250,7 +282,7 @@ button {
   padding: 25px;
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
   transition: transform 0.3s, box-shadow 0.3s;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 150px;
 }
 
 .about-box:hover {
@@ -265,10 +297,10 @@ button {
 }
 
 .read-more p {
-  color: rgb(105, 105, 105);
+  color: gray;
 }
 
-/* ====Modal background==== */
+/* About Modal background */
   .modal {
     pointer-events: auto; /* makes overlay respond to clicks */
     display: none; /* hidden by default */
@@ -286,22 +318,729 @@ button {
   /* Modal box */
   .modal-content {
     background: #1a1a1a;
-    padding: 20px;
+    backdrop-filter: blur(50px);
+    padding: 50px;
     border-radius: 12px;
-    max-width: 500px;
+    max-width: 900px;
     width: 80%;
     color: white;
     text-align: center;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     animation: fadeIn 0.3s ease;
-    position: relative; /* for positioning close button */
     z-index: 10;
+    height: 500px;
+    position: absolute;
+    top: 100px;
+  }
+
+  /*Who I am Related*/
+  .modal-content p {
+    text-align: justify;
+    text-indent: 50px;
+    position: absolute;
+    bottom: 100px;
+    right: 80px;
+    max-width: 70ch;
+    column-gap: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: gainsboro;
+  }
+
+  .Left-section ul li {
+    list-style: none;
+    column-gap: 20px;
+    position: relative;
+    top: 50px;
+    text-align: left;
+    right: 20px;
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: gainsboro;
+  }
+
+  .Left-section i {
+    position: relative;
+    right: 120px;
+    top: 70px;
+  }
+
+  .Left-section h1 {
+    font-size: 30px;
+    color: #a855f7;
+    position: absolute;
+    bottom: 250px;
+    left: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+    .Left-section {
+  background: transparent;
+  padding: 20px;
+  padding-bottom: 10px;
+  border-radius: none;
+  border: 1px solid;
+  height: 300px;
+  border-color: #a855f7;
+  border-bottom: none;
+  border-left: none;
+  border-top: none;
+  width: 200px;  
+  position: absolute;
+  top: 200px;
+  }
+
+  .Paragraph1 h1 {
+    font-size: 4rem;
+    color: #a855f7;
+    position: absolute;
+    top: 5px;
+    left: 280px;
+    text-align: justify;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+  }
+
+  .Paragraph2 h1 {
+    font-size: 4rem;
+    color: #a885f7;
+    position: absolute;
+    top: 55px;
+    left: 280px;
+    text-align: justify;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+  }
+
+  .profile-pic2 {
+  margin-top: -100px;
+  position: absolute;
+  right: -30px;
+  bottom: 200px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  }
+
+  /*My Goals*/
+  .modal-content2 {
+    background: #1a1a1a;
+    backdrop-filter: blur(50px);
+    padding: 50px;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 80%;
+    color: white;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+    z-index: 10;
+    height: 500px;
+    position: absolute;
+    top: 100px;
+  }
+
+  .Box-Modal1 {
+    position: relative;
+    top: 50px;
+    left: 30px;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 8px;
+    rotate: 45deg;
+    overflow: hidden;
+    border: 2px solid #a855f7;
+    box-shadow:
+      0 0 6px #a855f7,
+      0 0 14px #a855f7,
+      0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Box-Modal1 img {
+    object-fit: cover;
+    position: relative;
+    bottom: 30px;
+    right: 30px;
+    width: 150px;
+    height: 150px;
+    rotate: -45deg;
+    z-index: -1000;
+  }
+
+  .Paragraph-Box1 h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    position: relative;
+    left: 250px;
+    bottom: 100px;
+  }
+  .Paragraph-Box1 p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    position: relative;
+    left: 290px;
+    bottom: 100px;
+    text-indent: 50px;
+    max-width: 500px;
+  }
+
+  .Box-Modal2 {
+    position: relative;
+    bottom: 60px;
+    left: 130px;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 8px;
+    rotate: 45deg;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Box-Modal2 img {
+    object-fit: cover;
+    position: relative;
+    bottom: 30px;
+    right: 30px;
+    width: 150px;
+    height: 150px;
+    rotate: -45deg;
+    z-index: -1000;
+  }
+
+  .Paragraph-Box2 h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    position: relative;
+    left: 350px;
+    bottom: 160px;
+  }
+  .Paragraph-Box2 p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    position: relative;
+    left: 390px;
+    bottom: 160px;
+    text-indent: 50px;
+    max-width: 500px;
+  }
+
+  .Box-Modal3 {
+    position: relative;
+    bottom: 150px;
+    left: 30px;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 8px;
+    rotate: 45deg;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Box-Modal3 img {
+    object-fit: cover;
+    position: relative;
+    bottom: 30px;
+    right: 30px;
+    width: 150px;
+    height: 150px;
+    rotate: -45deg;
+    z-index: -1000;
+  }
+
+  .Paragraph-Box3 h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    position: relative;
+    left: 250px;
+    bottom: 210px;
+  }
+  .Paragraph-Box3 p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    text-indent: 50px;
+    position: relative;
+    left: 290px;
+    bottom: 210px;
+    max-width: 500px;
+  }
+
+  /*Skills & Tools */
+
+  .modal-content3 {
+    background: #1a1a1a;
+    backdrop-filter: blur(50px);
+    padding: 50px;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 80%;
+    color: white;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+    z-index: 10;
+    height: 500px;
+    position: absolute;
+    top: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .Boxes {
+    display: grid;
+    position: absolute;
+    bottom: -100px;
+  }
+
+  .Box1 {
+    position: absolute;
+    bottom: 430px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Cplusplus h3 {
+    position: absolute;
+    left: 110px;
+    bottom: 465px;
+  }
+
+  .CplusplusBar {
+    position: absolute;
+    bottom: 450px;
+    left: 110px;
+    height: 30px;
+    width: 250px;
+    border-radius: 30px;
+    background-color: transparent;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Bar1 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 150px;
+    height: 20px;
+    background-color: #a855f7;
+  }
+
+  .Box1 img {
+    scale: 1.5;
+    position: relative;
+    bottom: 3px;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .Box2 {
+    position: absolute;
+    bottom: 300px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .C h3 {
+    position: absolute;
+    left: 110px;
+    bottom: 335px;
+  }
+  
+  .CBar {
+    position: absolute;
+    bottom: 320px;
+    left: 110px;
+    height: 30px;
+    width: 250px;
+    border-radius: 30px;
+    background-color: transparent;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Bar2 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 100px;
+    height: 20px;
+    background-color: #a855f7;
+  }
+
+  .Box2 img {
+    scale: 1.5;
+    position: relative;
+    bottom: 3px;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .Box3 {
+    position: absolute;
+    bottom: 170px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Python h3 {
+    position: absolute;
+    left: 110px;
+    bottom: 205px;
+  }
+
+  .PythonBar {
+    position: absolute;
+    bottom: 190px;
+    left: 110px;
+    height: 30px;
+    width: 250px;
+    border-radius: 30px;
+    background-color: transparent;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Bar3 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    background-color: #a855f7;
+  }
+
+  .Box3 img {
+    scale: 1.5;
+    position: relative;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .Box4 {
+    position: absolute;
+    bottom: 40px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .JavaScript h3 {
+    position: absolute;
+    left: 110px;
+    bottom: 75px;
+  }
+
+  .JavaScriptBar {
+    position: absolute;
+    bottom: 60px;
+    left: 110px;
+    height: 30px;
+    width: 250px;
+    border-radius: 30px;
+    background-color: transparent;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Bar4 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 50px;
+    height: 20px;
+    background-color: #a855f7;
+  }
+
+  .Box4 img {
+    scale: 1.5;
+    position: relative;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .Box5 {
+  position: absolute;
+  bottom: -190px;
+  width: 75px;
+  height: 75px;
+  background-color: transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+  0 0 6px #a855f7,
+  0 0 14px #a855f7,
+  0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Java h3 {
+    position: absolute;
+    left: 160px;
+    bottom: -155px;
+  }
+
+  .JavaBar {
+    position: absolute;
+    bottom: -170px;
+    left: 160px;
+    height: 30px;
+    width: 250px;
+    border-radius: 30px;
+    background-color: transparent;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Bar5 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 90px;
+    height: 20px;
+    background-color: #a855f7;
+  }
+
+  .Box5 img {
+    scale: 1.5;
+    position: relative;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .ComputerLanguages {
+    position: absolute;
+    bottom: 400px;
+    left: 125px;
+  }
+
+  .Divider {
+    height: 800px;
+    width: 1px;
+    background-color: #111;
+    position: absolute;
+    left: 470px;
+  }
+
+  .Tools {
+    position: absolute;
+    bottom: 425px;
+    left: 650px;
+  }
+
+  .Boxes2 {
+    display: grid;
+    position: absolute;
+    bottom: -100px;
+    left: 530px;
+  }
+
+  .Box6 {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    bottom: 430px;;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Box6 img {
+    scale: 1.3;
+    position: relative;
+    bottom: 2px;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .HTML h3 {
+    position: absolute;
+    left: 110px;
+    bottom: 465px;
+  }
+
+  .HTMLBar {
+    position: absolute;
+    bottom: 450px;
+    left: 110px;
+    height: 30px;
+    width: 300px;
+    border-radius: 30px;
+    background-color: transparent;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Bar6 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 90px;
+    height: 20px;
+    background-color: #a855f7;
+  }
+
+  .Box7 {
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+.Box7 img {
+    scale: 1.3;
+    position: relative;
+    bottom: 2px;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.ReactBar {
+    position: absolute;
+    left: 110px;
+    bottom: 190px;
+    border-radius: 30px;
+    height: 30px;
+    width: 300px;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+}
+
+  .Box8 {
+    position: absolute;
+    bottom: 170px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+  }
+
+  .Box8 img {
+    scale: 1.3;
+    position: relative;
+    bottom: 2px;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .Box12 {
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
   }
 
   .about-box,
   .modal-content {
-      cursor: url("Images/Cursors/NO.cur"), pointer; /*to add hover to container */
+      cursor: url("Cursors/NO.cur"), pointer; /*to add hover to container */
   }
+
+.about-box1 h3 {
+  position: relative;
+  top: 100px;
+}
 
   /* Close button */
   .close {
@@ -311,6 +1050,7 @@ button {
     font-size: 30px;
     cursor: pointer;
     color: white;
+    animation: fadeOut 0.3s ease;
   }
 
   @keyframes fadeIn {
@@ -324,33 +1064,43 @@ button {
     }
   }
 
+  @keyframes fadeOut {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
 
 /* ===== PROJECT SECTION ===== */
-#projects {
-  padding-top: 40px;
-  margin-top: 150px;
-}
 
 .projects {
-  scroll-margin-top: 140px;
-  padding: 40px 10%;
-  border-radius: 30px;
-  margin: 0;
-  margin-top: 100px;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-bottom: 0;
 }
 
 .projects h2 {
+  position: absolute;
+  top: 150px;
+  left: 150px;
   font-family: Comic Sans MS, cursive, sans-serif;
   font-size: 2.5rem;
-  margin-bottom: 20px;
   color: #a855f7;
 }
 
 .project-container {
+  position: absolute;
+  top: 300px;
+  padding-left: 150px;
+  padding-right: 150px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  margin-top: 30px;
 }
 
 .project-box {
@@ -358,6 +1108,8 @@ button {
   border: 2px solid #6b21a8;
   border-radius: 15px;
   padding: 25px;
+  padding-bottom: 0;
+  padding-top: 0;
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -365,7 +1117,6 @@ button {
 .project-box h3 {
   font-family: Comic Sans MS, cursive, sans-serif;
   color: #a855f7;
-  margin-bottom: 10px;
 }
 
 .about-container h3 {
@@ -389,12 +1140,8 @@ button {
   background: #0a0a0a;
   text-align: center;
   margin-top: 300px;
-  padding: 100px;
-  border: 1px solid #6b21a8;
-  border-bottom: 0;
-  border-left: 0;
-  border-right: 0;
-  padding-bottom: 155px;
+  padding: 100px 100px 155px;
+  border-top: 1px solid #6b21a8;
 }
 
 .contact h2 {
@@ -463,7 +1210,7 @@ button {
 
 /* ===== TYPING EFFECT ===== */
 #typing-text {
-  font-family: Comic Sans MS, cursive, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   display: inline-block;
   min-height: 1.5em;
   line-height: 1.5em;
@@ -482,28 +1229,23 @@ button {
 /* ===== REVEAL ANIMATIONS ===== */
 .reveal {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all .5s ease;
+  transform: translateY(25px);
+  transition: all 1s ease;
 }
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
-.reveal.left {
-  transform: translateX(-50px);
-}
-.reveal.right {
-  transform: translateX(50px);
-}
 .reveal.top {
   opacity: 0;
-  transform: translateY(-50px);
-  transition: all 0.8s ease;
+  transform: translateY(-25px);
+  transition: all 0.5s ease;
 }
 .reveal.top.active {
   opacity: 1;
   transform: translateY(0);
 }
+
 
 /* ===== ANIMATIONS ===== */
 @keyframes pulse-glow {

@@ -10,12 +10,13 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
 
     <!-- Navbar Section -->
     <header>
         <nav class="navbar reveal top">
-            <h1>My Portfolio</h1>
+            <h1>Portfolio</h1>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-item">Home</a></li>
                 <li><a href="#about" class="nav-item">About</a></li>
@@ -25,9 +26,19 @@
         </nav>
     </header>
 
-    <!-- Apps Section -->
-    <section id="Appsl" class="Apps reveal">
-        <div class="apps">
+
+    <!-- Home Section -->
+    <section id="home" class="section home reveal">
+        <div class="profile reveal">
+            <img src="Images/Coder.jpg" class="profile-pic" alt="Profile Picture">
+            <div class="profile-info reveal">
+                <h2>Hello World, I'm</h2>
+                <h1>SHANN</h1>
+                <h2 id="typing-text"></h2>
+            </div>
+
+                        <!-- Apps Section -->
+        <div class="apps reveal">
             <a href="https://github.com/DVanex" target="_blank" rel="noopener">
                 <i class="fa-brands fa-github"></i>
             </a>
@@ -38,28 +49,20 @@
                 <i class="fa-brands fa-instagram"></i>
             </a>
         </div>
-    </section>
-
-    <!-- Home Section -->
-    <section id="home" class="home reveal">
-        <div class="profile reveal left">
-            <img src="Images/Coder.jpg" class="profile-pic" alt="Profile Picture">
-            <div class="profile-info">
-                <h2>Hello World, I'm</h2>
-                <h1>Shann</h1>
-                <h2 id="typing-text"></h2>
-            </div>
+        
         </div>
 
         <!-- Spline Section -->
-        <div class="spline-container reveal right">
+        <div class="Invisible"></div>
+        <div class="spline-container reveal">
             <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.56/build/spline-viewer.js"></script>
             <spline-viewer url="https://prod.spline.design/k9LG7FLJ8Gc3EtcX/scene.splinecode"></spline-viewer>
         </div>
+
     </section>
 
 <!-- About Section -->
-<section id="about" class="about reveal">
+<section id="about" class="section about reveal">
     <h2>About Me</h2>
     <div class="about-container">
 
@@ -78,27 +81,41 @@
         <!-- Who I Am Modal -->
         <div id="aboutModal" class="modal">
             <div class="modal-content">
-                <h3>Who I Am</h3>
-                <p>
-                    Hello! I'm <strong>Shann</strong>, a passionate Computer Engineering student
-                    who loves technology, coding, and continuous learning.
-                </p>
-                <p>
-                    Outside of school, I enjoy building interactive websites, working on UI/UX
-                    designs, and experimenting with creative 3D projects. I aim to merge
-                    creativity and technology to make unique digital experiences.
-                </p>
+                <div class="profile reveal">
+                <img src="Images/Coder.jpg" class="profile-pic2" alt="Profile Picture">
+                </div>
+                <p>I am someone who finds inspiration in creativity, problem-solving, and the constant pursuit of growth. From an early age, I have always been curious about how things work whether it was exploring design, experimenting with technology, or observing how people interact with the world around them. That curiosity grew into a passion for creating experiences that feel both functional and meaningful.
+                Over the years, I have developed a love for crafting digital solutions, whether through coding, design, or combining the two. I believe that technology should not only work well but also feel natural, intuitive, and enjoyable to use. This mindset drives me to learn continuously, explore new tools, and refine my skills to stay aligned with the ever-evolving digital landscape.
+                Beyond my technical interests, I value connection and storytelling. Every project I work on is an opportunity to share ideas, evoke emotions, and make a difference, no matter how small. I enjoy collaborating with others, exchanging perspectives, and finding ways to bring concepts to life through design and development.
+                In everything I do, I strive to balance creativity with clarity, ensuring that what I create is both engaging and impactful..</p>
+                <div class="Left-section">
+                <h1>CONTACT</h1>
+                    <ul>
+                    <i class="fa-solid fa-envelope"></i>
+                    <li>Shawnskret@gmail.com</li>
+                    <i class="fa-solid fa-phone"></i>
+                    <li>+63 992-676-0130</li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <li>Sitio Zapataera, Brgy. Luz, Cebu City</li>
+                    </ul>
+                </div>
+                <div class="Paragraph1">
+                        <h1>SHANN MICHAEL</h1>
+                        <div class="Paragraph2">
+                            <h1>AGANG</h1>
+                        </div>
+                </div>
             </div>
         </div>
 
         <!-- My Goals -->
         <div class="about-box reveal" onclick="openModal('goalsModal')">
             <h3>My Goals</h3>
-            <p>
-                My aim is to become a skilled software and hardware engineer,
-                mastering programming, system design, and innovative technologies.
-                I want to create solutions that make an impact.
-            </p>
+                <p>
+                    My aim is to become a skilled software and hardware engineer,
+                    mastering programming, system design, and innovative technologies.
+                    I want to create solutions that make an impact.
+                </p>
             <div class="read-more">
                 <p>(click to read more)</p>
             </div>
@@ -106,17 +123,30 @@
 
         <!-- My Goals Modal -->
         <div id="goalsModal" class="modal">
-            <div class="modal-content">
-                <h3>My Goals</h3>
-                <p>
-                    My aim is to become a skilled software and hardware engineer,
-                    mastering programming, system design, and innovative technologies.
-                    I want to create solutions that make an impact.
-                </p>
-                <p>
-                    In the long term, I want to contribute to projects that improve people’s
-                    daily lives and push technology forward.
-                </p>
+            <div class="modal-content2">
+                <div class="Box-Modal1">
+                    <img src="Images/Symbol (1).png" alt="Goals Pic">
+            </div>
+            <div class="Paragraph-Box1">
+                <h3>Become more skilled </h3>
+                <p>Becoming more skilled in web development by learning advanced frameworks, improving problem-solving, and practicing through real projects. </p>
+            </div>
+
+            <div class="Box-Modal2">
+                <img src="Images/Symbol (2).png">
+            </div>
+            <div class="Paragraph-Box2">
+                <h3>Create impactful designs </h3>
+                <p>Focusing on designing user-friendly and interactive websites that prioritize accessibility, performance, and aesthetics. </p>
+            </div>
+
+            <div class="Box-Modal3">
+                <img src="Images/Symbol (3).png">
+            </div>
+            <div class="Paragraph-Box3">
+                <h3>Continuous improvement </h3>
+                <p>Committing to lifelong learning, staying updated with industry trends, and improving my craft through feedback and iteration. </p>
+            </div>
             </div>
         </div>
 
@@ -134,18 +164,92 @@
 
         <!-- Skills & Tools Modal -->
         <div id="skillsModal" class="modal">
-            <div class="modal-content">
-                <h3>Skills & Tools</h3>
-                <p>
-                    Languages: <strong>C, C++, Java, Python, HTML, CSS, JavaScript</strong>
-                </p>
-                <p>
-                    Tools: <strong>AutoCAD, Git, Visual Studio Code</strong>
-                </p>
-                <p>
-                    I'm also exploring frameworks and libraries like <strong>React</strong> 
-                    to enhance my frontend development skills.
-                </p>
+            <div class="modal-content3">
+                <div class="ComputerLanguages">
+                    <h2>Computer<br>Languages</h2>
+                </div>
+                <div class="Boxes">
+                <div class="Box1">
+                    <img src="Images/C++ Logo.png">
+                </div>
+                <div class="Cplusplus">
+                <h3>C++</h3>
+            </div>
+            <div class="CplusplusBar">
+                <div class="Bar1"></div>
+            </div>
+                <div class="Box2">
+                    <img src="Images/C logo.png">
+                </div>
+                <div class="C">
+                    <h3>C</h3>
+                </div>
+                <div class="CBar">
+                    <div class="Bar2"></div>
+                </div>
+                <div class="Box3">
+                    <img src="Images/Python Logo.png">
+                </div>
+                <div class="Python">
+                    <h3>Python</h3>
+                </div>
+                <div class="PythonBar">
+                    <div class="Bar3"></div>
+                </div>
+                <div class="Box4">
+                    <img src="Images/JavaScript Logo.png">
+                </div>
+                <div class="JavaScript">
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="JavaScriptBar">
+                    <div class="Bar4"></div>
+                </div>
+                </div>
+                <div class="Box5">
+                    <img src="Images/Java Logo.png"></div>
+                <div class="Java">
+                    <h3>JAVA</h3>
+                </div>
+                <div class="JavaBar">
+                    <div class="Bar5"></div>
+                </div>
+
+                <div class="Divider">
+
+                </div>
+                <div class="Tools">
+                    <h2>Tools</h2>
+                    </div>
+                <div class="Boxes2">
+                    <div class="Box6">
+                    <img src="Images/HTML Logo.png">
+                </div>
+                <div class="HTML">
+                    <h3>HTML</h3>
+                </div>
+                <div class="HTMLBar">
+                    <div class="Bar6"></div>
+                </div>
+                <div class="Box7">
+                    <img src="Images/CSS Logo.png">
+                </div> 
+                <div class="CSS">
+                    <h3>CSS</h3>
+                </div>
+                <div class="Box8">
+                    <img src="Images/React Logo.png">
+                </div>
+                <div class="ReactBar">
+                    <div class="React">
+                        <h3>React</h3>
+                    </div>
+                </div>
+                <div class="React"></div>
+                <div class="Box11"></div>
+                <div class="Box12"></div>
+                </div>
+            </div>
             </div>
         </div>
 
@@ -154,7 +258,7 @@
 
 
     <!-- Projects Section -->
-    <section id="projects" class="projects reveal">
+    <section id="projects" class="section projects reveal">
         <h2>Projects</h2>
         <div class="project-container">
             <div class="project-box reveal">
@@ -173,7 +277,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact reveal">
+    <section id="contact" class="section contact reveal">
         <h2>Contact Me</h2>
         <p>If you’d like to collaborate or just say hello, feel free to reach out!</p>
         <form action="https://formspree.io/f/mwpnzgzo" method="POST" class="contact-form reveal">

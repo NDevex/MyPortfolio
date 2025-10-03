@@ -44,9 +44,12 @@ function closeModal(id) {
   document.getElementById(id).style.display = "none";
 }
 
+
+
 // Close when clicking outside any modal
 window.onclick = function(event) {
   if (event.target.classList.contains("modal")) {
     event.target.style.display = "none";
   }
 };
+

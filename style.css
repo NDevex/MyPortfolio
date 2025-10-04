@@ -1,8 +1,8 @@
 html {
   scroll-behavior: smooth;
-        /* Make root the scroll container for snapping */
+ /* Make root the scroll container for snapping */
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -10,6 +10,22 @@ body {
   background: #0f0f0f;
   cursor: url("Cursors/Arrow.cur"), auto;   /* default cursor */
 }
+
+/*Customized ScrollBar*/
+
+    *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #222222;
+    border-radius:50px;
+    border: none;
+  }
 
 
 *.grabbing {
@@ -173,8 +189,8 @@ scroll-snap-align: start;
 .Invisible {
   position: absolute;
   left: 1300px;
-  top: 605px;
-  height: 55px;
+  top: 590px;
+  height: 65px;
   width: 200px;
   background-color: #0f0f0f;
   z-index: 999999;
@@ -330,7 +346,7 @@ scroll-snap-align: start;
     z-index: 10;
     height: 500px;
     position: absolute;
-    top: 100px;
+    top: 90px;
   }
 
   /*Who I am Related*/
@@ -436,7 +452,7 @@ scroll-snap-align: start;
     z-index: 10;
     height: 500px;
     position: absolute;
-    top: 100px;
+    top: 90px;
   }
 
   .Box-Modal1 {
@@ -588,7 +604,7 @@ scroll-snap-align: start;
     z-index: 10;
     height: 500px;
     position: absolute;
-    top: 100px;
+    top: 90px;
     overflow-y: scroll;
     overflow-x: hidden;
   }
@@ -878,7 +894,7 @@ scroll-snap-align: start;
 
   .ComputerLanguages {
     position: absolute;
-    bottom: 400px;
+    bottom: 520px;
     left: 125px;
   }
 
@@ -892,8 +908,8 @@ scroll-snap-align: start;
 
   .Tools {
     position: absolute;
-    bottom: 425px;
-    left: 650px;
+    bottom: 555px;
+    left: 690px;
   }
 
   .Boxes2 {
@@ -954,12 +970,14 @@ scroll-snap-align: start;
     left: 5px;
     border-radius: 30px;
     overflow: hidden;
-    width: 90px;
+    width: 220px;
     height: 20px;
     background-color: #a855f7;
   }
 
   .Box7 {
+    position: absolute;
+    bottom: 300px;
     width: 75px;
     height: 75px;
     background-color: transparent;
@@ -982,6 +1000,37 @@ scroll-snap-align: start;
     object-fit: cover;
 }
 
+.CSS h3 {
+    position: absolute;
+    left: 110px;
+    bottom: 335px;
+}
+
+.CSSBar {
+    position: absolute;
+    bottom: 320px;
+    left: 110px;
+    height: 30px;
+    width: 300px;
+    border-radius: 30px;
+    background-color: transparent;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+}
+
+.Bar7 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 220px;
+    height: 20px;
+    background-color: #a855f7;
+}
+
 .ReactBar {
     position: absolute;
     left: 110px;
@@ -993,6 +1042,22 @@ scroll-snap-align: start;
     0 0 6px #a855f7,
     0 0 14px #a855f7,
     0 0 28px rgba(168,85,247,0.6);
+}
+
+.Bar8 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 60px;
+    height: 20px;
+    background-color: #a855f7;
+}
+
+.React h3 {
+  position: absolute;
+  bottom: 20px;
 }
 
   .Box8 {
@@ -1020,7 +1085,9 @@ scroll-snap-align: start;
     object-fit: cover;
   }
 
-  .Box12 {
+.Box9 {
+    position: absolute;
+    bottom: 40px;
     width: 75px;
     height: 75px;
     background-color: transparent;
@@ -1030,7 +1097,102 @@ scroll-snap-align: start;
     0 0 6px #a855f7,
     0 0 14px #a855f7,
     0 0 28px rgba(168,85,247,0.6);
-  }
+}
+
+.Box9 img {
+    scale: 1.3;
+    position: relative;
+    bottom: 2px;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.Arduino h3 {
+  position: absolute;
+  bottom: 75px;
+  left: 110px;
+}
+
+.ArduinoBar {
+    position: absolute;
+    left: 110px;
+    bottom: 60px;
+    border-radius: 30px;
+    height: 30px;
+    width: 300px;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+}
+
+.Bar9 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 50px;
+    height: 20px;
+    background-color: #a855f7;
+}
+
+.Box10 {
+    position: absolute;
+    bottom: -90px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+}
+
+.Box10 img {
+    scale: 1.1;
+    position: relative;
+    bottom: 2px;
+    right: 2px;
+    z-index: -100;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.Autocad h3 {
+  position: absolute;
+  left: 110px
+}
+
+.AutocadBar {
+    position: absolute;
+    left: 110px;
+    bottom: -75px;
+    border-radius: 30px;
+    height: 30px;
+    width: 300px;
+    box-shadow: 
+    0 0 6px #a855f7,
+    0 0 14px #a855f7,
+    0 0 28px rgba(168,85,247,0.6);
+}
+
+.Bar10 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 50px;
+    height: 20px;
+    background-color: #a855f7;
+}
 
   .about-box,
   .modal-content {
@@ -1139,29 +1301,34 @@ scroll-snap-align: start;
 .contact {
   background: #0a0a0a;
   text-align: center;
-  margin-top: 300px;
-  padding: 100px 100px 155px;
-  border-top: 1px solid #6b21a8;
 }
 
 .contact h2 {
+  position: absolute;
+  top: 100px;
+  left: 685px;
   padding: 11px;
   font-family: Comic Sans MS, cursive, sans-serif;
   font-size: 2.5rem;
-  margin-bottom: 30px;
   color: #a855f7;
 }
 
 .contact p {
+  position: absolute;
+  top: 190px;
+  left: 555px;
   font-family: Comic Sans MS, cursive, sans-serif;
   color: #ccc;
   margin-bottom: 40px;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .contact-form {
-  max-width: 600px;
-  margin: 0 auto;
+  position: absolute;
+  top: 250px;
+  left: 508.3px;
+  width: 600px;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;

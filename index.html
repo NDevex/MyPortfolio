@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Story+Script:regular" rel="stylesheet" /> <!-- Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" >
 </head>
 
 <body>
@@ -53,12 +53,9 @@
         </div>
 
         <!-- Spline Section -->
-        <div class="Invisible"></div>
-            <div class="spline-container reveal">
-            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.56/build/spline-viewer.js"></script>
-            <spline-viewer url="https://prod.spline.design/k9LG7FLJ8Gc3EtcX/scene.splinecode"></spline-viewer>
-            </div>
-
+         <div class="Invisible"></div>
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.74/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/k9LG7FLJ8Gc3EtcX/scene.splinecode"></spline-viewer>
     </section>
 
 <!-- About Section -->
@@ -279,20 +276,46 @@
     <!-- Projects Section -->
     <section id="projects" class="section projects reveal">
         <h2>Projects</h2>
-        <div class="project-container">
-            <div class="project-box reveal">
+        <div class="project-container">    
+
+                <!-- Project 1 -->
+            <div class="project-box reveal" onclick="openModal('projectModal')">
                 <h3>Project 1</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor similique, voluptatem nobis laboriosam at, error adipisci modi voluptatum voluptatibus illo a doloribus velit nesciunt officiis!</p>
             </div>
-            <div class="project-box reveal">
-                <h3>Project 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium placeat quod a perferendis cupiditate maxime incidunt magni fugit obcaecati omnis asperiores, veritatis nesciunt voluptate rem!</p>
+
+            <!--Project 1 Modal-->
+                <div id="projectModal" class="modal">
+                    <div class="modal-contentp1">
+                        <h3>Series Circuits</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi doloremque dolor odio provident sed atque recusandae aperiam, ab, in autem fugiat ipsam pariatur rem laudantium?</p>
+                    </div>
+                </div>
+
+                <!--Project 2-->
+            <div class="project-box reveal" onclick="openModal('2projectModal')">             
+                    <h3>Project 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium placeat quod a perferendis cupiditate maxime incidunt magni fugit obcaecati omnis asperiores, veritatis nesciunt voluptate rem!</p>
             </div>
-            <div class="project-box reveal">
+
+            <!--Project 2 Modal-->
+                <div id="2projectModal" class="modal">
+                    <div class="modal-contentp2">
+                        <h3>Parallel Circuit</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora iusto mollitia facere minus nihil unde distinctio incidunt delectus ipsum vero est at, accusamus nobis dolorum?</p>
+                    </div>
+                </div>
+
+                <!--Project 3-->
+            <div class="project-box reveal" onclick="openModal('3projectModal')">   
                 <h3>Project 3</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium placeat quod a perferendis cupiditate maxime incidunt magni fugit obcaecati omnis asperiores, veritatis nesciunt voluptate rem!</p>
-            </div>
         </div>
+
+                <div id="3projectModal" class="modal">
+                <div class="modal-contentp3">
+                    <h3>Series-Parallel Circuit</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut recusandae enim eius? Quas nisi deleniti, quam eius cum asperiores vero repudiandae at neque voluptatibus accusamus corporis quasi, doloremque suscipit? Inventore?</p>
     </section>
 
     <!-- Contact Section -->

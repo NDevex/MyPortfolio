@@ -1,1838 +1,390 @@
-html {
-  scroll-behavior: smooth;
- /* Make root the scroll container for snapping */
-  overflow-y: scroll;
-  scroll-snap-type: y proximity;
-}
-
-body {
-  margin: 0;
-  background: #0f0f0f;
-  cursor: url("Cursors/Arrow.cur"), auto;   /* default cursor */
-}
-
-/*Customized ScrollBar*/
-
-    *::-webkit-scrollbar {
-    width: 2px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #222222;
-    border-radius:50px;
-    border: none;
-  }
-
-
-*.grabbing {
-  cursor: url("Cursors/Help.cur"), grab;   /* dragging */
-}
-
-a:hover, button:hover {
-  cursor: url("Cursors/NO.cur"), pointer;
-}
-
-a:active, button:active {
-  cursor: url("Cursors/NO.cur"), pointer;
-}
-
-.contact-form button {
-  cursor: url("Cursors/NO.cur"), auto;
-}
-
-/* When hovering */
-.contact-form button:hover {
-  cursor: url("Cursors/NO.cur"), pointer;
-}
-
-/* When clicking (active) */
-.contact-form button:active {
-  cursor: url("Cursors/NO.cur"), pointer;
-}
-
-button {
-  cursor: pointer;   /* standard hand pointer for buttons */
-} 
-
-
-.section {   
-height: 100vh;
-scroll-snap-align: start;
-}
-
-/* ===== Apps Section ===== */
-
-.apps {
-  display: flex;
-  gap: 10px;
-  position: absolute;
-  top: 300px;
-  left: 120px;
-}
-
-.apps i {
-  font-size: 32px;
-  background: linear-gradient(90deg, #a855f7, #7c3aed, #c084fc, #a21caf);
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: purple-gradient 3s ease-in-out infinite;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.apps i:hover {
-  rotate: 10deg;
-  transform: scale(1.5);
-  filter: brightness(1.4);
-}
-
-/* ===== LAYOUT COMPONENTS ===== */
-.header {
-  padding: 50px;
-  text-align: center;
-}
-
-/* ===== NAVIGATION ===== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-  height: 30px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  background: #111;
-  border-radius: 50px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin: 20px 90px 0;
-}
-
-.navbar h1 {
-  font-family: Lilita One;
-  background: linear-gradient(60deg, #a855f7, #7c3aed, #c084fc, #4f0594); 
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: purple-gradient 3s ease-in-out infinite;
-  margin: 0;
-  padding-left: 40px;
-}
-
-.nav-links {
-  font-family: Comic Sans MS, cursive, sans-serif;
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-  margin-right: 40px;
-}
-
-.nav-links a {
-  position: relative;
-  text-decoration: none;
-  color: gray;
-  transition: 1s;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 2px;
-  background: rgb(48, 5, 239);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: 0.3s;
-}
-
-.nav-links :hover {
-  transform: scale(1.3);
-  transition: 0.5s ease-in-out;
-}
-
-.nav-links a:hover {
-  color: #fff;
-  transform: scale(1.5);
-}
-
-.nav-links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: center;
-}
-
-/* ===== HOME 3D SECTION ===== */
-.home {
-  overflow-x: hidden;
-  scroll-margin-top: 100px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 100vh;
-  padding-right: 50px;
-  scroll-snap-align: start;
-}
-
-.Invisible {
-  position: absolute;
-  bottom: 60px;
-  right: 20px;
-  height: 50px;
-  width: 160px;
-  background-color: #0f0f0f;
-  z-index: 999999;
-}
-
-.home spline-viewer {
-  position: absolute;
-  bottom: 45px;
-  right: 20px;
-  width: 700px;
-  height: 700px;
-  border: none;
-  margin-top: 100px;
-  z-index: 1;
-}
-
-/* ===== PROFILE SECTION ===== */
-.profile {
-  position: absolute;
-  right: 900px;
-  bottom: 250px;
-  margin-top: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 50px;
-}
-
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  animation: pulse-glow 3s ease-in-out infinite;
-  transition: transform 0.3s;
-}
-
-.profile-pic:hover {
-  transform: scale(1.1);
-}
-
-.profile-info h1 {
-  position: relative;
-  left: 50px;
-  font-family: Lilita One;
-  margin: 0;
-  font-size: 100px;
-  color: #5308e9;
-}
-
-
-
-.profile-info h2 {
-  position: relative;
-  left: 50px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  display: flex;
-  margin: 0;
-  font-size: 24px;
-  color: silver;
-}
-
-.profile-info p {
-  margin-top: 200px;
-  color: #aaa;
-  max-width: 400px;
-}
-
-.text-box {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* ===== ABOUT SECTION ===== */
-
-.about {
-  padding-bottom: 0;
-  padding-top: 0;
-  text-align: center;
-  background-color: #0a0a0a;
-  height: 100vh;
-}
-
-#about h2 {
-  position: relative;
-  top: 130px;
-  font-family: Comic Sans MS, cursive, sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #a855f7;
-}
-
-.about-container {
-text-align: center;
-position: absolute;
-top: 250px;
-  padding-left: 150px;
-  padding-right: 150px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.about-box {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: rgba(20, 20, 20, 0.9);
-  border: 2px solid #6b21a8;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-  scroll-margin-top: 150px;
-}
-
-.about-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.7);
-}
-
-.about-box p {
-  color: #e5e5e5;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.read-more p {
-  color: gray;
-}
-
-/* About Modal background */
-  .modal {
-    pointer-events: auto; /* makes overlay respond to clicks */
-    display: none; /* hidden by default */
-    position: fixed;
-    z-index: 1000; /* sits on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* dim background */
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Modal box */
-  .modal-content {
-    background: #1a1a1a;
-    backdrop-filter: blur(50px);
-    padding: 50px;
-    border-radius: 12px;
-    max-width: 900px;
-    width: 80%;
-    color: white;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease;
-    z-index: 10;
-    height: 500px;
-    position: absolute;
-    top: 90px;
-  }
-
-  /*Who I am Related*/
-  .modal-content p {
-    text-align: justify;
-    text-indent: 50px;
-    position: absolute;
-    bottom: 100px;
-    right: 80px;
-    max-width: 70ch;
-    column-gap: 2rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: gainsboro;
-  }
-
-  .Left-section ul li {
-    list-style: none;
-    column-gap: 20px;
-    position: relative;
-    top: 50px;
-    text-align: left;
-    right: 20px;
-    margin-bottom: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: gainsboro;
-  }
-
-  .Left-section i {
-    position: relative;
-    right: 120px;
-    top: 70px;
-  }
-
-  .Left-section h1 {
-    font-size: 30px;
-    color: #a855f7;
-    position: absolute;
-    bottom: 250px;
-    left: 40px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  }
-
-    .Left-section {
-  background: transparent;
-  padding: 20px;
-  padding-bottom: 10px;
-  border-radius: none;
-  border: 1px solid;
-  height: 300px;
-  border-color: #a855f7;
-  border-bottom: none;
-  border-left: none;
-  border-top: none;
-  width: 200px;  
-  position: absolute;
-  top: 200px;
-  }
-
-  .Paragraph1 h1 {
-    font-size: 4rem;
-    color: #a855f7;
-    position: absolute;
-    top: 5px;
-    left: 280px;
-    text-align: justify;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bold;
-  }
-
-  .Paragraph2 h1 {
-    font-size: 4rem;
-    color: #a885f7;
-    position: absolute;
-    top: 55px;
-    left: 280px;
-    text-align: justify;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bold;
-  }
-
-  .profile-pic2 {
-  margin-top: -100px;
-  position: absolute;
-  left: 85px;
-  bottom: 160px;
-  width: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  }
-
-  /*My Goals*/
-  .modal-content2 {
-    background: #1a1a1a;
-    backdrop-filter: blur(50px);
-    padding: 50px;
-    border-radius: 12px;
-    max-width: 900px;
-    width: 80%;
-    color: white;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease;
-    z-index: 10;
-    height: 500px;
-    position: absolute;
-    top: 90px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-
-  .modal-content2 h1 {
-    position: absolute;
-    top: 10px;
-    font-family: Lilita One;
-    color: #a855f7;
-  }
-
-  .DividerForGoals {
-    position: absolute;
-    top: 650px;
-    left: 100px;
-    width: 800px;
-    height: 1px;
-    background-color: #0f0f0f;
-  }
-
-  .Achievements {
-    margin-bottom: 150px;
-    height: 600px;
-    width: 900px;
-    position: absolute;
-    background-color: #1a1a1a;
-  }
-
-  .BoxForGoals1 {
-    height: 350px;
-    width: 230px;
-    position: absolute;
-    bottom: 100px;
-    right: 10px;
-    background-color: grey;
-    border-style: solid;
-    border-radius: 20px;
-    border-color: white;
-    border-width: 2px;
-    z-index: 2;
-  }
-
-  .BoxForGoals2 {
-    height: 250px;
-    width: 200px;
-    background-color: grey;
-    position: absolute;
-    bottom: 50px;
-    right: 180px;
-    border-style: solid;
-    border-radius: 20px;
-    border-color: white;
-    border-width: 2px;
-    z-index: 3;
-  }
-
-  .BoxForGoals3 {
-    background-color: grey;
-    width: 250px;
-    height: 300px;
-    position: absolute;
-    right: 180px;
-    top: 100px;
-    border-style: solid;
-    border-radius: 20px;
-    border-color: white;
-    border-width: 2px;
-    z-index: 1;
-  }
-
-  .Achievements h1 {
-    position: absolute;
-    font-family: Lilita One;
-    color: #a855f7;
-    top: 10px;
-  }
-
-  .Achievements p {
-    max-width: 50ch;
-    text-align: justify;
-    text-indent: 50px;
-    position: absolute;
-    top: 250px;
-  }
-
-  .Achievements h4 {
-    text-align: justify;
-    font-size: 1.5rem;
-    position: relative;
-    top: 100px;
-    color: #a885f7;
-  }
-
-  .Achievements a {
-    position: absolute;
-    left: 750px;
-    top: 280px;
-    list-style-type: none;
-    color: white;
-    z-index: 100;
-    text-decoration: none;
-  }
-
-  .Box-Modal1 {
-    position: relative;
-    top: 100px;
-    left: 30px;
-    width: 100px;
-    height: 100px;
-    background: transparent;
-    border-radius: 8px;
-    rotate: 45deg;
-    overflow: hidden;
-    border: 2px solid #a855f7;
-    box-shadow:
-      0 0 6px #a855f7,
-      0 0 14px #a855f7,
-      0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Box-Modal1 img {
-    object-fit: cover;
-    position: relative;
-    bottom: 30px;
-    right: 30px;
-    width: 150px;
-    height: 150px;
-    rotate: -45deg;
-    z-index: -1000;
-  }
-
-  .Paragraph-Box1 h3 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: justify;
-    position: relative;
-    left: 250px;
-    bottom: 50px;
-  }
-  .Paragraph-Box1 p {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: justify;
-    position: relative;
-    left: 290px;
-    bottom: 50px;
-    text-indent: 50px;
-    max-width: 500px;
-  }
-
-  .Box-Modal2 {
-    position: relative;
-    bottom: 10px;
-    left: 130px;
-    width: 100px;
-    height: 100px;
-    background: transparent;
-    border-radius: 8px;
-    rotate: 45deg;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Box-Modal2 img {
-    object-fit: cover;
-    position: relative;
-    bottom: 30px;
-    right: 30px;
-    width: 150px;
-    height: 150px;
-    rotate: -45deg;
-    z-index: -1000;
-  }
-
-  .Paragraph-Box2 h3 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: justify;
-    position: relative;
-    left: 350px;
-    bottom: 110px;
-  }
-  .Paragraph-Box2 p {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: justify;
-    position: relative;
-    left: 390px;
-    bottom: 110px;
-    text-indent: 50px;
-    max-width: 500px;
-  }
-
-  .Box-Modal3 {
-    position: relative;
-    bottom: 100px;
-    left: 30px;
-    width: 100px;
-    height: 100px;
-    background: transparent;
-    border-radius: 8px;
-    rotate: 45deg;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Box-Modal3 img {
-    object-fit: cover;
-    position: relative;
-    bottom: 30px;
-    right: 30px;
-    width: 150px;
-    height: 150px;
-    rotate: -45deg;
-    z-index: -1000;
-  }
-
-  .Paragraph-Box3 h3 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: justify;
-    position: relative;
-    left: 250px;
-    bottom: 160px;
-  }
-  .Paragraph-Box3 p {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: justify;
-    text-indent: 50px;
-    position: relative;
-    left: 290px;
-    bottom: 160px;
-    max-width: 500px;
-  }
-
-  /*Skills & Tools */
-
-  .modal-content3 {
-    background: #1a1a1a;
-    backdrop-filter: blur(50px);
-    padding: 50px;
-    padding-bottom: 50px;
-    border-radius: 12px;
-    max-width: 900px;
-    width: 80%;
-    color: white;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease;
-    z-index: 10;
-    height: 500px;
-    position: absolute;
-    top: 90px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  .Boxes {
-    display: grid;
-    position: absolute;
-    bottom: -100px;
-  }
-
-  .Box1 {
-    position: absolute;
-    bottom: 430px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Cplusplus h3 {
-    position: absolute;
-    left: 110px;
-    bottom: 465px;
-  }
-
-  .CplusplusBar {
-    position: absolute;
-    bottom: 450px;
-    left: 110px;
-    height: 30px;
-    width: 250px;
-    border-radius: 30px;
-    background-color: transparent;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Bar1 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 150px;
-    height: 20px;
-    background-color: #a855f7;
-  }
-
-  .Box1 img {
-    scale: 1.5;
-    position: relative;
-    bottom: 3px;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-
-  .Box2 {
-    position: absolute;
-    bottom: 300px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .C h3 {
-    position: absolute;
-    left: 110px;
-    bottom: 335px;
-  }
-  
-  .CBar {
-    position: absolute;
-    bottom: 320px;
-    left: 110px;
-    height: 30px;
-    width: 250px;
-    border-radius: 30px;
-    background-color: transparent;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Bar2 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 100px;
-    height: 20px;
-    background-color: #a855f7;
-  }
-
-  .Box2 img {
-    scale: 1.5;
-    position: relative;
-    bottom: 3px;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-
-  .Box3 {
-    position: absolute;
-    bottom: 170px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Python h3 {
-    position: absolute;
-    left: 110px;
-    bottom: 205px;
-  }
-
-  .PythonBar {
-    position: absolute;
-    bottom: 190px;
-    left: 110px;
-    height: 30px;
-    width: 250px;
-    border-radius: 30px;
-    background-color: transparent;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Bar3 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 20px;
-    height: 20px;
-    background-color: #a855f7;
-  }
-
-  .Box3 img {
-    scale: 1.5;
-    position: relative;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-
-  .Box4 {
-    position: absolute;
-    bottom: 40px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .JavaScript h3 {
-    position: absolute;
-    left: 110px;
-    bottom: 75px;
-  }
-
-  .JavaScriptBar {
-    position: absolute;
-    bottom: 60px;
-    left: 110px;
-    height: 30px;
-    width: 250px;
-    border-radius: 30px;
-    background-color: transparent;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Bar4 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 50px;
-    height: 20px;
-    background-color: #a855f7;
-  }
-
-  .Box4 img {
-    scale: 1.5;
-    position: relative;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-
-  .Box5 {
-  position: absolute;
-  bottom: -190px;
-  width: 75px;
-  height: 75px;
-  background-color: transparent;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow:
-  0 0 6px #a855f7,
-  0 0 14px #a855f7,
-  0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Java h3 {
-    position: absolute;
-    left: 160px;
-    bottom: -155px;
-  }
-
-  .JavaBar {
-    position: absolute;
-    bottom: -170px;
-    left: 160px;
-    height: 30px;
-    width: 250px;
-    border-radius: 30px;
-    background-color: transparent;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Bar5 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 90px;
-    height: 20px;
-    background-color: #a855f7;
-  }
-
-  .Box5 img {
-    scale: 1.5;
-    position: relative;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-
-  .ComputerLanguages {
-    position: absolute;
-    bottom: 520px;
-    left: 125px;
-  }
-
-  .Divider {
-    height: 700px;
-    width: 1px;
-    background-color: #111;
-    position: absolute;
-    left: 470px;
-  }
-
-  .Tools {
-    position: absolute;
-    bottom: 555px;
-    left: 690px;
-  }
-
-  .Boxes2 {
-    display: grid;
-    position: absolute;
-    bottom: -100px;
-    left: 530px;
-  }
-
-  .Box6 {
-    position: absolute;
-    width: 75px;
-    height: 75px;
-    bottom: 430px;;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Box6 img {
-    scale: 1.3;
-    position: relative;
-    bottom: 2px;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-
-  .HTML h3 {
-    position: absolute;
-    left: 110px;
-    bottom: 465px;
-  }
-
-  .HTMLBar {
-    position: absolute;
-    bottom: 450px;
-    left: 110px;
-    height: 30px;
-    width: 300px;
-    border-radius: 30px;
-    background-color: transparent;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Bar6 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 220px;
-    height: 20px;
-    background-color: #a855f7;
-  }
-
-  .Box7 {
-    position: absolute;
-    bottom: 300px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-.Box7 img {
-    scale: 1.3;
-    position: relative;
-    bottom: 2px;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-}
-
-.CSS h3 {
-    position: absolute;
-    left: 110px;
-    bottom: 335px;
-}
-
-.CSSBar {
-    position: absolute;
-    bottom: 320px;
-    left: 110px;
-    height: 30px;
-    width: 300px;
-    border-radius: 30px;
-    background-color: transparent;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-}
-
-.Bar7 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 220px;
-    height: 20px;
-    background-color: #a855f7;
-}
-
-.ReactBar {
-    position: absolute;
-    left: 110px;
-    bottom: 190px;
-    border-radius: 30px;
-    height: 30px;
-    width: 300px;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-}
-
-.Bar8 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 60px;
-    height: 20px;
-    background-color: #a855f7;
-}
-
-.React h3 {
-  position: absolute;
-  bottom: 20px;
-}
-
-  .Box8 {
-    position: absolute;
-    bottom: 170px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-  }
-
-  .Box8 img {
-    scale: 1.3;
-    position: relative;
-    bottom: 2px;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-
-.Box9 {
-    position: absolute;
-    bottom: 40px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-}
-
-.Box9 img {
-    scale: 1.3;
-    position: relative;
-    bottom: 2px;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-}
-
-.Arduino h3 {
-  position: absolute;
-  bottom: 75px;
-  left: 110px;
-}
-
-.ArduinoBar {
-    position: absolute;
-    left: 110px;
-    bottom: 60px;
-    border-radius: 30px;
-    height: 30px;
-    width: 300px;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-}
-
-.Bar9 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 50px;
-    height: 20px;
-    background-color: #a855f7;
-}
-
-.Box10 {
-    position: absolute;
-    bottom: -90px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow:
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-}
-
-.Box10 img {
-    scale: 1.1;
-    position: relative;
-    bottom: 2px;
-    right: 2px;
-    z-index: -100;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-}
-
-.Autocad h3 {
-  position: absolute;
-  left: 110px
-}
-
-.AutocadBar {
-    position: absolute;
-    left: 110px;
-    bottom: -75px;
-    border-radius: 30px;
-    height: 30px;
-    width: 300px;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-}
-
-.Bar10 {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 30px;
-    overflow: hidden;
-    width: 200px;
-    height: 20px;
-    background-color: #a855f7;
-}
-
-  .about-box,
-  .modal-content {
-      cursor: url("Cursors/NO.cur"), pointer; /*to add hover to container */
-  }
-
-.about-box1 h3 {
-  position: relative;
-  text-align: center;
-  top: 100px;
-}
-
-  /* Close button */
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    animation: fadeOut 0.3s ease;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-
-/* ===== PROJECT SECTION ===== */
-
-.projects {
-  padding-bottom: 0;
-  padding-top: 0;
-  margin-bottom: 0;
-}
-
-.modal-contentp1 {
-    background: #1a1a1a;
-    backdrop-filter: blur(50px);
-    padding: 50px;
-    border-radius: 12px;
-    max-width: 900px;
-    width: 80%;
-    color: white;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease;
-    z-index: 10;
-    height: 500px;
-    position: absolute;
-    top: 90px;
-}
-
-.p1Circle {
-  position: absolute;
-  top: 60px;
-  right: 50px;
-  height: 40px;
-  width: 40px;
-  background-color: transparent;
-  border-radius: 50%;
-  overflow: hidden;
-    box-shadow: 
-    0 0 6px #a855f7,
-    0 0 14px #a855f7,
-    0 0 28px rgba(168,85,247,0.6);
-}
-
-.p1Circle img {
-    scale: 4.5;
-    position: relative;
-    top: 10px;
-    z-index: -100;
-    width: 10px;
-    height: 10px;
-    object-fit: cover;
-}
-
-.modal-contentp1 h1 {
-  text-align: left;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #a885f7;
-}
-
-.modal-contentp1 p {
-  position: absolute;
-  top: 230px;
-  text-indent: 50px;
-  text-align: justify;
-  max-width: 50ch;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.modal-contentp1 a {
-  text-decoration: none;
-  position: absolute;
-  top: 300px;
-  color: white;
-  left: 750px;
-}
-
-.ImageBoxForProject1 {
-  position: absolute;
-  top: 220px;
-  right: 305px;
-  width: 200px;
-  height: 300px;
-  background-color: transparent;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.ImageBoxForProject1 img {
-  position: relative;
-  height: 300px;
-  width: 200px;
-}
-
-.ImageBoxForProject1b {
-  position: absolute;
-  bottom: 100px;
-  right: 40px;
-  width: 250px;
-  height: 150px;
-  background-color: transparent;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.ImageBoxForProject1b img {
-  object-fit: cover;
-  position: relative;
-  width: 250px;
-  height: 150px;
-}
-
-.ImageBoxForProject1c {
-  position: absolute;
-  right: 90px;
-  background-color: transparent;
-  height: 150px;
-  width: 200px;
-  border-radius: 20px;
-}
-
-.ImageBoxForProject1c img {
-  height: 150px;
-  width: 200px;
-  border-radius: 20px;
-}
-
-.modal-contentp2 {
-    background: #1a1a1a;
-    backdrop-filter: blur(50px);
-    padding: 50px;
-    border-radius: 12px;
-    max-width: 900px;
-    width: 80%;
-    color: white;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease;
-    z-index: 10;
-    height: 500px;
-    position: absolute;
-    top: 90px;
-}
-
-.modal-contentp2 h1 {
-  text-align: left;
-  color: #a885f7;
-}
-
-.modal-contentp2 p {
-  position: absolute;
-  top: 230px;
-  text-align: justify;
-  max-width: 50ch;
-  text-indent: 50px;
-}
-
-.modal-contentp2 a {
-  text-decoration: none;
-  position: absolute;
-  top: 300px;
-  color: white;
-  left: 750px;
-}
-
-.ImageBoxProject2 {
-  position: absolute;
-  bottom: 220px;
-  right: 220px;
-  height: 200px;
-  width: 250px;
-  border-radius: 10px;
-  background-color: grey;
-}
-
-.ImageBoxProject2b {
-  position: absolute;
-  right: 60px;
-  bottom: 220px;
-  height: 230px;
-  width: 150px;
-  border-radius: 10px;
-  background-color: grey;
-}
-
-.ImageBoxProject2c {
-  position: absolute;
-  right: 60px;
-  bottom: 80px;
-  height: 130px;
-  width: 350px;
-  background-color: grey;
-  border-radius: 10px;
-}
-
-.modal-contentp3 {
-    background: #1a1a1a;
-    backdrop-filter: blur(50px);
-    padding: 50px;
-    border-radius: 12px;
-    max-width: 900px;
-    width: 80%;
-    color: white;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease;
-    z-index: 10;
-    height: 500px;
-    position: absolute;
-    top: 90px;
-}
-
-.modal-contentp3 h1 {
-  text-align: left;
-  color: #a885f7;
-}
-
-.modal-contentp3 p {
-  position: absolute;
-  top: 230px;
-  text-align: justify;
-  text-indent: 50px;
-  max-width: 50ch;
-}
-
-.modal-contentp3 a {
-  text-decoration: none;
-  position: absolute;
-  top: 300px;
-  color: white;
-  left: 750px;
-}
-
-.ImageBoxForProject3 {
-  position: absolute;
-  bottom: 280px;
-  right: 50px;
-  height: 150px;
-  width: 200px;
-  background-color: grey;
-  border-radius: 10px;
-}
-
-.ImageBoxForProject3b {
-  position: absolute;
-  bottom: 90px;
-  right: 50px;
-  height: 180px;
-  width: 200px;
-  background-color: grey;
-  border-radius: 10px;
-}
-
-.ImageBoxForProject3c {
-  position: absolute;
-  bottom: 120px;
-  right: 265px;
-  height: 250px;
-  width: 200px;
-  background-color: grey;
-  border-radius: 10px;
-}
-
-
-/*General Project Design */
-.projects h2 {
-  position: absolute;
-  top: 150px;
-  left: 150px;
-  font-family: Comic Sans MS, cursive, sans-serif;
-  font-size: 2.5rem;
-  color: #a855f7;
-}
-
-.project-container {
-  position: absolute;
-  top: 300px;
-  padding-left: 150px;
-  padding-right: 150px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.project-box {
-  background: rgba(20, 20, 20, 0.9);
-  border: 2px solid #6b21a8;
-  border-radius: 15px;
-  padding: 25px;
-  padding-bottom: 0;
-  padding-top: 0;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.project-box h3 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #a855f7;
-}
-
-.about-container h3 {
-  color: #a855f7;
-}
-
-.project-box p {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-indent: 1.5rem;
-  text-align: justify;
-  color: #e5e5e5;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.project-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.7);
-}
-
-/* ===== CONTACT SECTION ===== */
-.contact {
-  background: #0a0a0a;
-  text-align: center;
-}
-
-.contact h2 {
-display: center;
-position: relative;
-top: 150px;
-  padding: 11px;
-  font-family: Comic Sans MS, cursive, sans-serif;
-  font-size: 2.5rem;
-  color: #a855f7;
-}
-
-.contact p {
-  display: center;
-  position: relative;
-  top: 150px;
-  font-family: Comic Sans MS, cursive, sans-serif;
-  color: #ccc;
-  margin-bottom: 40px;
-  font-size: 1rem;
-}
-
-.contact-form {
-  display: center;
-  position: relative;
-  top: 170px;
-  left: 470px;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  font-family: Comic Sans MS, cursive, sans-serif;
-  padding: 15px;
-  border: 2px solid #6b21a8;
-  border-radius: 10px;
-  background: #111;
-  color: white;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  resize: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #a855f7;
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
-}
-
-.contact-form button {
-  font-family: Comic Sans MS, cursive, sans-serif;
-  padding: 15px;
-  width: 50%;
-  margin: 0 auto;
-  border: none;
-  border-radius: 20px;
-  background: #a855f7;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.contact-form button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
-}
-
-
-
-/* ===== TYPING EFFECT ===== */
-#typing-text {
-  font-family: 'Courier New', Courier, monospace;
-  display: inline-block;
-  min-height: 1.5em;
-  line-height: 1.5em;
-  white-space: nowrap;
-  vertical-align: top;
-}
-
-#typing-text::after {
-  position: relative;
-  left: -2px;
-  content: "|";
-  display: inline-block;
-  animation: blink 0.8s infinite;
-  color: #5308e9;
-}
-
-/* ===== REVEAL ANIMATIONS ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: all 1s ease;
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal.top {
-  opacity: 0;
-  transform: translateY(-25px);
-  transition: all 0.5s ease;
-}
-.reveal.top.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* ===== ANIMATIONS ===== */
-@keyframes pulse-glow {
-  0% {
-    box-shadow: 0 0 10px rgba(132, 0, 255, 0.7),
-                0 0 20px rgba(71, 16, 122, 0.6),
-                0 0 40px rgba(132, 0, 255, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(132, 0, 255, 1),
-                0 0 50px rgba(71, 16, 122, 0.9),
-                0 0 80px rgba(132, 0, 255, 0.8);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(132, 0, 255, 0.7),
-                0 0 20px rgba(71, 16, 122, 0.6),
-                0 0 40px rgba(132, 0, 255, 0.5);
-  }
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  50.01%, 100% { opacity: 0; }
-}
-
-@keyframes blinkCursor {
-  0% { border-color: transparent; }
-  25% { border-color: #fff; }
-  100% { border-color: transparent;}
-}
-
-@keyframes purple-gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@media (max-width: 1024px) {
-  /* Tablets */
-}
-
-@media (max-width: 768px) {
-  /* Mobile (portrait + small tablets) */
-  .home spline-viewer {
-    position: absolute;
-    display: center;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Small phones */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Set character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Shann Portfolio</title> <!-- Page title -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" >
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Story+Script:regular" rel="stylesheet" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
+</head>
+
+<body>
+
+    <!-- Navbar Section -->
+    <header>
+        <nav class="navbar reveal top">
+            <h1>Portfolio</h1>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-item">Home</a></li>
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#contact" class="nav-item">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Home Section -->
+    <section id="home" class="section home reveal">
+        <div class="profile reveal">
+            <img src="Images/Coder.jpg" class="profile-pic" alt="Profile Picture">
+            <div class="profile-info reveal">
+                <h2>Hello World, I'm</h2>
+                <h1>SHANN</h1>
+                <h2 id="typing-text"></h2>
+            </div>
+
+                        <!-- Apps Section -->
+        <div class="apps reveal">
+            <a href="https://github.com/NDevex" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.facebook.com/shann.michael.agang" target="_blank" rel="noopener">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://discord.com/users/1226724774248452216" target="_blank" rel="noopener">
+                <i class="fa-brands fa-discord"></i>
+            </a>
+        </div>
+        
+        </div>
+
+        <!-- Spline Section -->
+         <div class="Invisible"></div>
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.74/build/spline-viewer.js">
+        </script>
+        <spline-viewer url="https://prod.spline.design/k9LG7FLJ8Gc3EtcX/scene.splinecode"></spline-viewer>
+    </section>
+
+<!-- About Section -->
+<section id="about" class="section about reveal">
+    <h2>About Me</h2>
+    <div class="about-container">
+
+        <!-- Who I Am -->
+        <div class="about-box reveal" onclick="openModal('aboutModal')">
+            <h3>Who I Am</h3>
+            <p>
+                Hello! I'm <strong>Shann</strong>, a passionate Computer Engineering student who loves
+                technology, coding, and continuous learning.
+            </p>
+            <div class="read-more">
+                <p>(click to read more)</p>
+            </div>
+        </div>
+
+        <!-- Who I Am Modal -->
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <div class="profile reveal">
+                <img src="Images/Coder.jpg" class="profile-pic2" alt="Profile Picture">
+                </div>
+                <p>I am someone who finds inspiration in creativity, problem-solving, and the constant pursuit of growth. From an early age, I have always been curious about how things work whether it was exploring design, experimenting with technology, or observing how people interact with the world around them. That curiosity grew into a passion for creating experiences that feel both functional and meaningful.
+                Over the years, I have developed a love for crafting digital solutions, whether through coding, design, or combining the two. I believe that technology should not only work well but also feel natural, intuitive, and enjoyable to use. This mindset drives me to learn continuously, explore new tools, and refine my skills to stay aligned with the ever-evolving digital landscape.
+                Beyond my technical interests, I value connection and storytelling. Every project I work on is an opportunity to share ideas, evoke emotions, and make a difference, no matter how small. I enjoy collaborating with others, exchanging perspectives, and finding ways to bring concepts to life through design and development.
+                In everything I do, I strive to balance creativity with clarity, ensuring that what I create is both engaging and impactful..</p>
+                <div class="Left-section">
+                <h1>CONTACT</h1>
+                    <ul>
+                    <i class="fa-solid fa-envelope"></i>
+                    <li>Shawnskret@gmail.com</li>
+                    <i class="fa-solid fa-phone"></i>
+                    <li>+63 992-676-0130</li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <li>Sitio Zapataera, Brgy. Luz, Cebu City</li>
+                    </ul>
+                </div>
+                <div class="Paragraph1">
+                        <h1>SHANN MICHAEL</h1>
+                        <div class="Paragraph2">
+                            <h1>AGANG</h1>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Goals -->
+        <div class="about-box reveal" onclick="openModal('goalsModal')">
+            <h3>Goals & Achievements</h3>
+                <p>
+                    My aim is to become a skilled software and hardware engineer,
+                    mastering programming, system design, and innovative technologies.
+                    I want to create solutions that make an impact.
+                </p>
+            <div class="read-more">
+                <p>(click to read more)</p>
+            </div>
+        </div>
+
+        <!-- My Goals Modal -->
+        <div id="goalsModal" class="modal">
+            <div class="modal-content2">
+                <div class="Box-Modal1">
+                    <img src="Images/Symbol (1).png" alt="Goals Pic">
+            </div>
+            <h1>GOALS</h1>
+            <div class="Paragraph-Box1">
+                <h3>Become more skilled </h3>
+                <p>Becoming more skilled in web development by learning advanced frameworks, improving problem-solving, and practicing through real projects. </p>
+            </div>
+
+            <div class="Box-Modal2">
+                <img src="Images/Symbol (2).png">
+            </div>
+            <div class="Paragraph-Box2">
+                <h3>Create impactful designs </h3>
+                <p>Focusing on designing user-friendly and interactive websites that prioritize accessibility, performance, and aesthetics. </p>
+            </div>
+
+            <div class="Box-Modal3">
+                <img src="Images/Symbol (3).png">
+            </div>
+            <div class="Paragraph-Box3">
+                <h3>Continuous improvement </h3>
+                <p>Committing to lifelong learning, staying updated with industry trends, and improving my craft through feedback and iteration. </p>
+            </div>
+            <div class="DividerForGoals"></div>
+            <div class="Achievements">
+                <h1>ACHIEVEMENTS</h1>
+                <h4>TITLE: Deans Lister</h4>
+                <h4>DATE: 01-04-03</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel fugit delectus voluptates harum quibusdam nobis consequuntur dolores eveniet sunt assumenda soluta voluptatibus pariatur necessitatibus quia, earum ut aperiam maxime at quaerat facere. Aliquam natus placeat doloremque quae sapiente rem quidem nostrum repellendus quisquam corporis, pariatur veniam modi ipsa animi assumenda expedita nemo facere odio cum facilis ab, sit velit eius possimus. Distinctio velit esse obcaecati voluptas! Pariatur quam inventore porro explicabo. Ullam eius dignissimos voluptatibus, fuga corrupti odit perspiciatis. Enim dicta dolorem autem quas facilis iusto sequi ad, quos doloribus non illo doloremque, quasi ea et culpa reprehenderit, dolores expedita!</p>
+            <p>
+                            <a href="LinkHere"
+                             target="_blank">SOURCE</a>
+            </p>
+            <div class="BoxForGoals1"></div>
+            <div class="BoxForGoals2"></div>
+            <div class="BoxForGoals3"></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Skills & Tools -->
+        <div class="about-box reveal" onclick="openModal('skillsModal')">
+            <h3>Skills & Tools</h3>
+            <p>
+                Languages: <strong>C, C++, Java, Python, HTML, CSS, JavaScript</strong><br>
+                Tools: <strong>AutoCAD, Git, Visual Studio Code</strong>
+            </p>
+            <div class="read-more">
+                <p>(click to read more)</p>
+            </div>
+        </div>
+
+        <!-- Skills & Tools Modal -->
+        <div id="skillsModal" class="modal">
+            <div class="modal-content3">
+                <div class="ComputerLanguages">
+                    <h2>Computer<br>Languages</h2>
+                </div>
+                <div class="Boxes">
+                <div class="Box1">
+                    <img src="Images/C++ Logo.png">
+                </div>
+                <div class="Cplusplus">
+                <h3>C++</h3>
+            </div>
+            <div class="CplusplusBar">
+                <div class="Bar1"></div>
+            </div>
+                <div class="Box2">
+                    <img src="Images/C logo.png">
+                </div>
+                <div class="C">
+                    <h3>C</h3>
+                </div>
+                <div class="CBar">
+                    <div class="Bar2"></div>
+                </div>
+                <div class="Box3">
+                    <img src="Images/Python Logo.png">
+                </div>
+                <div class="Python">
+                    <h3>Python</h3>
+                </div>
+                <div class="PythonBar">
+                    <div class="Bar3"></div>
+                </div>
+                <div class="Box4">
+                    <img src="Images/JavaScript Logo.png">
+                </div>
+                <div class="JavaScript">
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="JavaScriptBar">
+                    <div class="Bar4"></div>
+                </div>
+                </div>
+                <div class="Box5">
+                    <img src="Images/Java Logo.png"></div>
+                <div class="Java">
+                    <h3>JAVA</h3>
+                </div>
+                <div class="JavaBar">
+                    <div class="Bar5"></div>
+                </div>
+
+                <div class="Divider">
+
+                </div>
+                <div class="Tools">
+                    <h2>Tools</h2>
+                    </div>
+                <div class="Boxes2">
+                    <div class="Box6">
+                    <img src="Images/HTML Logo.png">
+                </div>
+                <div class="HTML">
+                    <h3>HTML</h3>
+                </div>
+                <div class="HTMLBar">
+                    <div class="Bar6"></div>
+                </div>
+                <div class="Box7">
+                    <img src="Images/CSS Logo.png">
+                </div> 
+                <div class="CSS">
+                    <h3>CSS</h3>
+                    <div class="CSSBar">
+                    <div class="Bar7"></div>
+                </div>
+                </div>
+                <div class="Box8">
+                    <img src="Images/React Logo.png">
+                </div>
+                <div class="ReactBar">
+                    <div class="React">
+                        <h3>React</h3>
+                        <div class="Bar8"></div>
+                    </div>
+                </div>
+                <div class="Box9">
+                    <img src="Images/Arduino Logo.png">
+                </div>
+                <div class="Arduino">
+                    <h3>Arduino</h3>
+                </div>
+                <div class="ArduinoBar">
+                    <div class="Bar9"></div>
+                </div>
+                <div class="Box10">
+                    <img src="Images/Autocad Logo.png">
+                </div>
+                <div class="Autocad">
+                    <h3>Autocad</h3>
+                </div>
+                <div class="AutocadBar">
+                    <div class="Bar10"></div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects reveal">
+        <h2>Projects</h2>
+        <div class="project-container">    
+
+                <!-- Project 1 -->
+            <div class="project-box reveal" onclick="openModal('projectModal')">
+                <h3>AutoCAD Plates</h3>
+                <p>These AutoCAD plates features technical letters, symbols, and 3D objects, demonstrating precise drafting and basic 3D modeling skills. It highlights proper proportions, spacing, and depth, combining 2D and 3D elements for clear and professional technical drawings..</p>
+            </div>
+
+            <!--Project 1 Modal-->
+                <div id="projectModal" class="modal">
+                    <div class="modal-contentp1">
+                        <h1>AutoCAD Plates</h1>
+                        <h1>05-09-25</h1>
+                        <p>These AutoCAD plate displays a combination of technical lettering, standard symbols, and three-dimensional objects, demonstrating fundamental drafting and modeling skills. The letters and symbols follow proper proportions and spacing according to drafting standards, including uppercase, lowercase, numerals, and common technical symbols such as diameter (Ø), centerline (℄), and angle (∠). The 3D objects illustrate basic modeling techniques, including extrusion, rotation, and scaling, providing a visual representation of depth and perspective. These plates emphasizes precision, clarity, and the integration of 2D and 3D drafting principles, forming a foundation for professional technical and engineering drawings.</p>
+                        <div class="p1Circle">
+                            <img src="Images/Autocad Logo.png">
+                        </div>
+                        <p>
+                            <a href="LinkHere"
+                             target="_blank">SOURCE</a>
+                        </p>
+                        <div class="ImageBoxForProject1">
+                            <img src="Images/Autocad Image 1.png">
+                        </div>
+                        <div class="ImageBoxForProject1b">
+                            <img src="Images/Autocad Image 2.png">
+                        </div>
+                        <div class="ImageBoxForProject1c">
+                            <img src="Images/Autocad Image 3.png">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Project 2-->
+            <div class="project-box reveal" onclick="openModal('2projectModal')">             
+                    <h3>Project 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium placeat quod a perferendis cupiditate maxime incidunt magni fugit obcaecati omnis asperiores, veritatis nesciunt voluptate rem!</p>
+            </div>
+
+            <!--Project 2 Modal-->
+                <div id="2projectModal" class="modal">
+                    <div class="modal-contentp2">
+                        <h1>Project Name: Test 2</h1>
+                        <h1>Date: 01-02-03</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur doloribus sapiente incidunt, laborum cum hic dolorum aspernatur velit explicabo iste libero, vero ad quas voluptas soluta distinctio vitae reiciendis minus. Dolor mollitia fugit, soluta blanditiis quo veritatis cumque harum quasi est doloribus corrupti molestias adipisci nobis, dolore magnam provident ab aperiam, doloremque perferendis inventore? Omnis, voluptas quod, exercitationem facilis voluptates, ipsum eligendi repellendus unde dolorem cupiditate corrupti possimus voluptatum illo sequi architecto quaerat ipsa eius at sed. Doloribus reiciendis assumenda animi. Reprehenderit tempora aperiam nulla totam impedit! Alias sunt enim fugit sint quisquam, facere quo ipsum! Aspernatur nisi perspiciatis nihil?</p>
+                        <p>
+                            <a href="LinkHere"
+                             target="_blank">SOURCE</a>
+                        </p>
+                        <div class="ImageBoxProject2"></div>
+                        <div class="ImageBoxProject2b"></div>
+                        <div class="ImageBoxProject2c"></div>
+                    </div>
+                </div>
+
+                <!--Project 3-->
+            <div class="project-box reveal" onclick="openModal('3projectModal')">   
+                <h3>Project 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium placeat quod a perferendis cupiditate maxime incidunt magni fugit obcaecati omnis asperiores, veritatis nesciunt voluptate rem!</p>
+        </div>
+
+                <div id="3projectModal" class="modal">
+                <div class="modal-contentp3">
+                    <h1>Series-Parallel Circuit</h1>
+                    <h1>Date: 01-02-03</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas incidunt natus sed maiores omnis numquam ex est dolor dignissimos cum alias velit optio quam aliquid, eum magnam et perspiciatis ad odit hic doloremque earum, ducimus facilis? Cumque, deserunt? Deleniti sequi illo necessitatibus possimus perspiciatis provident voluptatem, magni totam, beatae nostrum officia quo animi deserunt itaque distinctio corporis? Ullam est obcaecati laboriosam ratione deleniti, veritatis, ut quam eius officia temporibus eligendi. Odio pariatur necessitatibus ducimus architecto unde libero deserunt ex dolore dolorum dicta dolorem voluptatum rerum at, delectus ut obcaecati in fugit quam rem saepe consequuntur quis debitis. Deleniti, ab consectetur!.</p>
+                        <p>
+                            <a href="LinkHere"
+                             target="_blank">SOURCE</a>
+                        </p>
+                    <div class="ImageBoxForProject3"></div>
+                    <div class="ImageBoxForProject3b"></div>
+                    <div class="ImageBoxForProject3c"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact reveal">
+        <h2>Contact Me</h2>
+        <p>If you’d like to collaborate or just say hello, feel free to reach out!</p>
+        <form action="https://formspree.io/f/mwpnzgzo" method="POST" class="contact-form reveal">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

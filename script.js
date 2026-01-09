@@ -45,11 +45,9 @@ function closeModal(id) {
 }
 
 
-
 // Close when clicking outside any modal
 window.onclick = function(event) {
   if (event.target.classList.contains("modal")) {
     event.target.style.display = "none";
   }
 };
-

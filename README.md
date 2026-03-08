@@ -16,8 +16,6 @@ Technologies Used
 
 HTML, CSS, JavaScript
 
-[Optional: Frameworks or libraries you used, e.g., React, Spline, Tailwind]
-
 GitHub Pages for deployment
 
 How to Use

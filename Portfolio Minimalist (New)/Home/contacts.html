@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My First Webpage</title>
+    <link rel="StyleSheet" href="Contacts.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+    </style>
+
+    <script
+      src="https://kit.fontawesome.com/e267f16706.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <nav>
+      <ul class="navbar">
+        <li><a class="HomeLabel" href="home.html">Home</a></li>
+        <li><a class="AboutMeLabel" href="aboutme.html">About Me</a></li>
+      </ul>
+    </nav>
+  </head>
+
+  <body style="background-color: #121212">
+    <section class="ContactPage">
+      <form action="https://formspree.io/f/xjgqnalr" method="POST">
+        <h1 class="ConnectHeader">Connect</h1>
+        <p class="Sentence">
+          If you'd like to collaborate or just say hello, feel free to reach me
+          out!
+        </p>
+
+        <div class="Placement">
+        <input type="Name" name="name" placeholder="Your Name" required />
+        <label>
+          <input type="email" name="email" placeholder="Your Email" required />
+        </label>
+        <label>
+          <textarea
+            class="MessageBox"
+            name="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+        </label>
+        </div>
+
+        <!-- your other form fields go here -->
+        <button class="CButton" type="submit">Send</button>
+      </form>
+
+      <div class="Apps">
+        <a
+          class="Discord"
+          href="https://discord.com/users/1226724774248452216"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-discord"></i>
+        </a>
+
+        <a
+          class="Instagram"
+          href="https://www.instagram.com/sjysqx"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a
+          class="Github"
+          href="https://github.com/NDevex"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </section>
+  </body>
+</html>

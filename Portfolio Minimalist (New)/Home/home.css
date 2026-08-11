@@ -1,0 +1,436 @@
+@media (min-width: 320px) {
+    body {
+        background-color: #121212;
+    }
+
+    .navbar {
+        display: flex;
+        gap: 100px;
+        list-style: none;
+        font-weight: 100;
+        font-size: 40px;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 10;
+        font-style: normal;
+        position: absolute;
+        top: 50px;
+        right: 100px;
+    }
+
+    .HomeLabel {
+        position: relative;
+        color: #ffff;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .HomeLabel::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        width: 30px;
+        transform: translateX(-50%);
+        height: 1px;
+        background-color: white;
+        border-radius: 1px;
+        transition: 0.3s ease-out;
+    }
+
+
+    /* ABOUT ME LABEL */
+    .AboutMeLabel {
+        position: relative;
+        color: #ffff;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .AboutMeLabel::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        width: 0px;
+        transform: translateX(-50%) scaleX(0);
+        height: 1px;
+        background-color: white;
+        border-radius: 1px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .AboutMeLabel:hover::after {
+        width: 30px;
+        transform: translateX(-50%);
+        height: 1px;
+        background-color: white;
+        border-radius: 1px;
+    }
+
+
+    .navbar :hover {
+        color: #ccc5b9;
+        transform: scale(1);
+        transition: 0.5s ease-in-out;
+    }
+
+
+    /*HOME*/
+    .Home h1 {
+        color: #f5f5f5;
+        font-size: 60px;
+        font-family: "Arimo", sans-serif;
+        font-weight: 10;
+        position: absolute;
+        left: 100px;
+        top: 300px;
+    }
+
+    .Home p {
+        color: #e0e0e0;
+        font-family: "Open Sans";
+        font-optical-sizing: auto;
+        font-weight: 10;
+        font-style: normal;
+        width: 600px;
+        position: absolute;
+        left: 200px;
+        top: 550px;
+        font-size: 30px;
+        text-align: left;
+        text-indent: 100px;
+    }
+
+    .Buttones {
+        background-color: #f5f5f5;
+        color: black;
+        position: relative;
+        left: 200px;
+        top: 1150px;
+        width: 250px;
+        height: 70px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-family: "Open Sans", sans-serif;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: none;
+        transition: 0.3s ease-in-out;
+    }
+
+    .Buttones:hover {
+        background-color: #3A3A3A;
+        color: #f5f5f5;
+    }
+
+    .Apps {
+        font-size: xx-large;
+        display: flex;
+        position: absolute;
+        right: 200px;
+        bottom: 150px;
+        gap: 10px;
+        list-style: none;
+        text-decoration: none;
+        background-clip: text;
+    }
+
+    .Apps a {
+        color: #f5f5f5;
+        text-decoration: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    .Apps a:hover {
+        rotate: 10deg;
+        scale: 1.2;
+        transition: 0.3s ease-in-out;
+        color: grey;
+        filter: brightness(1.5);
+    }
+
+
+
+    .wave {
+        animation-name: wave-animation;
+        /* Refers to the name of your @keyframes element below */
+        animation-duration: 2.5s;
+        /* Change to speed up or slow down */
+        animation-iteration-count: infinite;
+        /* Never stop waving :) */
+        transform-origin: 70% 70%;
+        /* Pivot around the bottom-left palm */
+        display: inline-block;
+        font-size: 1.3em;
+    }
+
+    @keyframes wave-animation {
+        0% {
+            transform: rotate(0.0deg)
+        }
+
+        10% {
+            transform: rotate(14.0deg)
+        }
+
+        /* The following five values can be played with to make the waving more or less extreme */
+        20% {
+            transform: rotate(-8.0deg)
+        }
+
+        30% {
+            transform: rotate(14.0deg)
+        }
+
+        40% {
+            transform: rotate(-4.0deg)
+        }
+
+        50% {
+            transform: rotate(10.0deg)
+        }
+
+        60% {
+            transform: rotate(0.0deg)
+        }
+
+        /* Reset for the last half to pause */
+        100% {
+            transform: rotate(0.0deg)
+        }
+    }
+
+
+
+
+/* GENERAL */
+@media (min-width: 1200px) {
+    body {
+        background-color: #121212;
+    }
+
+
+    /* NAVBAR */
+    .navbar {
+        display: flex;
+        gap: 100px;
+        list-style: none;
+        font-weight: 100;
+        font-size: 20px;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 10;
+        font-style: normal;
+        position: absolute;
+        top: 50px;
+        right: 200px;
+    }
+
+    /* HOME LABEL */
+    .HomeLabel {
+        position: relative;
+        color: #ffff;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .HomeLabel::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        width: 30px;
+        transform: translateX(-50%);
+        height: 1px;
+        background-color: white;
+        border-radius: 1px;
+        transition: 0.3s ease-out;
+    }
+
+
+    /* ABOUT ME LABEL */
+    .AboutMeLabel {
+        position: relative;
+        color: #ffff;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .AboutMeLabel::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        width: 0px;
+        transform: translateX(-50%) scaleX(0);
+        height: 1px;
+        background-color: white;
+        border-radius: 1px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .AboutMeLabel:hover::after {
+        width: 30px;
+        transform: translateX(-50%);
+        height: 1px;
+        background-color: white;
+        border-radius: 1px;
+    }
+
+
+    .navbar :hover {
+        color: #ccc5b9;
+        transform: scale(1);
+        transition: 0.5s ease-in-out;
+    }
+
+
+    /* HOME */
+    .Home h1 {
+        /* TITLE */
+        color: #f5f5f5;
+        font-family: "Arimo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 10;
+        font-weight: 10;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+        font-size: 40px;
+    }
+
+    /* PARAGRAPH */
+    .Home p {
+        color: #e0e0e0;
+        font-family: "Open Sans";
+        font-optical-sizing: auto;
+        font-weight: 10;
+        font-style: normal;
+        width: 800px;
+        position: absolute;
+        left: 200px;
+        top: 350px;
+        font-size: 20px;
+        text-align: justify;
+        text-indent: 100px;
+    }
+
+
+    /* BUTTON */
+    .Buttones {
+        background-color: #f5f5f5;
+        color: black;
+        position: relative;
+        left: 200px;
+        top: 650px;
+        width: 250px;
+        height: 70px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-family: "Open Sans", sans-serif;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: none;
+        transition: 0.3s ease-in-out;
+    }
+
+    .Buttones:hover {
+        background-color: #3A3A3A;
+        color: #f5f5f5;
+    }
+
+    /* SOCIAL APPS */
+    .Apps {
+        font-size: xx-large;
+        display: flex;
+        position: absolute;
+        right: 200px;
+        bottom: 150px;
+        gap: 10px;
+        list-style: none;
+        text-decoration: none;
+        background-clip: text;
+    }
+
+    .Apps a {
+        color: #f5f5f5;
+        text-decoration: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    .Apps a:hover {
+        rotate: 10deg;
+        scale: 1.2;
+        transition: 0.3s ease-in-out;
+        color: grey;
+        filter: brightness(1.5);
+    }
+
+
+
+    /* WAVE */
+    .wave {
+        animation-name: wave-animation;
+        /* Refers to the name of your @keyframes element below */
+        animation-duration: 2.5s;
+        /* Change to speed up or slow down */
+        animation-iteration-count: infinite;
+        /* Never stop waving :) */
+        transform-origin: 70% 70%;
+        /* Pivot around the bottom-left palm */
+        display: inline-block;
+        font-size: 1.3em;
+    }
+
+    @keyframes wave-animation {
+        0% {
+            transform: rotate(0.0deg)
+        }
+
+        10% {
+            transform: rotate(14.0deg)
+        }
+
+        /* The following five values can be played with to make the waving more or less extreme */
+        20% {
+            transform: rotate(-8.0deg)
+        }
+
+        30% {
+            transform: rotate(14.0deg)
+        }
+
+        40% {
+            transform: rotate(-4.0deg)
+        }
+
+        50% {
+            transform: rotate(10.0deg)
+        }
+
+        60% {
+            transform: rotate(0.0deg)
+        }
+
+        /* Reset for the last half to pause */
+        100% {
+            transform: rotate(0.0deg)
+        }
+    }
+
+}
+
+
+
+}
